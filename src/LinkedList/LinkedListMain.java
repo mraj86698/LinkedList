@@ -5,18 +5,17 @@ public class LinkedListMain {
 		System.out.println("Welcome to the Linkedlist Program");
 		LinkedList list = new LinkedList();
 		boolean flag = true;
-		while(flag)
-		{
-			System.out.println("1. Insert at first position\n2. Display List \n2. insert at Last Position");
+		while (flag) {
+			System.out.println(
+					"1. Insert at first position\n2. Display List \n3. Insert at Last Position\n4. Insert at Any Position\n");
 			int choice = InputUtility.inputInteger();
 
-			switch (choice)
-			{
+			switch (choice) {
 			case 1:
 				System.out.println("How many items do u want to insert into the list: ");
 				int totalItem = InputUtility.inputInteger();
 				System.out.println("Enter Item");
-				for(int i = 0; i < totalItem; i++) {
+				for (int i = 0; i < totalItem; i++) {
 					int item = InputUtility.inputInteger();
 					list.insertAtFirst(item);
 				}
@@ -31,18 +30,25 @@ public class LinkedListMain {
 				System.out.println("How many items do u want to insert into the list: ");
 				int totalItem1 = InputUtility.inputInteger();
 				System.out.println("Enter Item");
-				for(int i = 0; i < totalItem1; i++) {
-				int item1 = InputUtility.inputInteger();
-				list.insertAtLast(item1);
+				for (int i = 0; i < totalItem1; i++) {
+					int item1 = InputUtility.inputInteger();
+					list.insertAtLast(item1);
 				}
 				System.out.println("List Item Added Successfully");
 				break;
+			case 4:
+				System.out.println("Enter Position to Enter Value: ");
+				int pos = InputUtility.inputInteger();
+				System.out.println("Enter Item");
+				int item2 = InputUtility.inputInteger();
+				list.insertAtPosition(item2, pos);
+				break;
+
 			default:
 				System.out.println("Invalid Position");
 				break;
 			}
 		}
-
 
 	}
 
