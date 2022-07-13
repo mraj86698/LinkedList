@@ -162,5 +162,24 @@ public class LinkedList {
 		}
 	}
 
+	/**
+	 * Linked List to Search Node
+	 * @param value
+	 */
+	public void search(int value)
+	{
+		Node temp;
+		temp = start;
+
+		for(int i = 0; i < size-1; i++)
+		{
+			temp = temp.getNext();
+			if(temp.getData() == value)
+			{
+				System.out.println(+value+" found at position "+i);
+			}
+		}
+	}
+
 
 }

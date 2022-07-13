@@ -7,7 +7,7 @@ public class LinkedListMain {
 		boolean flag = true;
 		while (flag) {
 			System.out.println(
-					"1. Insert at first position\n2. Display List \n3. Insert at Last Position\n4. Insert at Any Position\n5. Delete First Element\n6. Delete Last Element");
+					"1. Insert at first position\n2. Display List \n3. Insert at Last Position\n4. Insert at Any Position\n5. Delete First Element\n6. Delete Last Element\n7.Search item \nEnter your Choice: ");
 			int choice = InputUtility.inputInteger();
 
 			switch (choice) {
@@ -50,6 +50,11 @@ public class LinkedListMain {
 			case 6:
 				list.deleteLast();
 				System.out.println("List Item Deleted Successfully");
+				break;
+			case 7:
+				System.out.println("\nEnter Value You want to search: ");
+				int val = InputUtility.inputInteger();
+				list.search(val);
 				break;
 
 			default:
