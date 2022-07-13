@@ -7,7 +7,7 @@ public class LinkedListMain {
 		boolean flag = true;
 		while (flag) {
 			System.out.println(
-					"1. Insert at first position\n2. Display List \n3. Insert at Last Position\n4. Insert at Any Position\n5. Delete First Element");
+					"1. Insert at first position\n2. Display List \n3. Insert at Last Position\n4. Insert at Any Position\n5. Delete First Element\n6. Delete Last Element");
 			int choice = InputUtility.inputInteger();
 
 			switch (choice) {
@@ -45,6 +45,11 @@ public class LinkedListMain {
 				break;
 			case 5:
 				list.deleteFirst();
+				System.out.println("List Item Deleted Successfully");
+				break;
+			case 6:
+				list.deleteLast();
+				System.out.println("List Item Deleted Successfully");
 				break;
 
 			default:

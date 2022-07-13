@@ -138,5 +138,29 @@ public class LinkedList {
 		}
 
 	}
+	/**
+	 * Linked List Item Deleted at Last
+	 */
+
+	public void deleteLast()
+	{
+		if(start == null)
+			System.out.println("List is Empty.");
+		else if(size ==1)
+		{
+			start = null;
+			size--;
+		}
+		else
+		{
+			Node temp;
+			temp = start;
+			for(int i = 1; i < size -1 ; i++)
+				temp = temp.getNext();
+			temp.setNext(null);
+			size--;
+		}
+	}
+
 
 }
