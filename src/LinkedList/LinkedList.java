@@ -88,5 +88,23 @@ package LinkedList;
 		start = n;
 		size++;
 	}
+	public void insertAtLast(int value)
+	{
+		Node n, temp;
+		n = new Node();
+		n.setData(value);
+		temp = start;
+		if(temp == null)
+			start = n;
+		else
+		{
+			while(temp.getNext() != null)
+			{
+				temp = temp.getNext();
+			}
+			temp.setNext(n);
+		}
+		size++;
+	}
 
 }
