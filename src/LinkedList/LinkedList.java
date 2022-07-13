@@ -68,6 +68,10 @@ public class LinkedList {
 			System.out.println();
 		}
 	}
+	/**
+	 * Linked List to Element Insert into First
+	 * @param value
+	 */
 
 	public void insertAtFirst(int value) {
 		Node n = new Node();
@@ -76,6 +80,10 @@ public class LinkedList {
 		start = n;
 		size++;
 	}
+	/**
+	 * Linked List to Element InsertAtLast
+	 * @param value
+	 */
 
 	public void insertAtLast(int value) {
 		Node n, temp;
@@ -92,7 +100,11 @@ public class LinkedList {
 		}
 		size++;
 	}
-
+	/**
+	 * Linked List inserted value in between
+	 * @param value
+	 * @param position
+	 */
 	public void insertAtPosition(int value, int position) {
 		if (position == 1)
 			insertAtFirst(value);
@@ -109,6 +121,21 @@ public class LinkedList {
 			size++;
 		} else
 			System.out.println("Invalid position " + position);
+
+	}
+	/**
+	 * Delete the First Element
+	 */
+
+	public void deleteFirst()
+	{
+		if(start == null)
+			System.out.println("List is Empty. How can I Delete... :P");
+		else
+		{
+			start = start.getNext();
+			size--;
+		}
 
 	}
 
