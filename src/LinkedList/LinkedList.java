@@ -53,6 +53,23 @@ public class LinkedList {
 
 		return size;
 	}
+	/**
+	 * Linked List to Add items
+	 * @param item
+	 */
+
+	public void add(int item) {
+
+		Node n = new Node();
+		n.setData(item);
+		n.setNext(start);
+		start = n;
+		size++;
+	}
+
+	/**
+	 * Linked List to display Items
+	 */
 
 	public void display() {
 		Node temp;
@@ -68,8 +85,10 @@ public class LinkedList {
 			System.out.println();
 		}
 	}
+
 	/**
 	 * Linked List to Element Insert into First
+	 *
 	 * @param value
 	 */
 
@@ -79,9 +98,12 @@ public class LinkedList {
 		n.setNext(start);
 		start = n;
 		size++;
+
 	}
+
 	/**
 	 * Linked List to Element InsertAtLast
+	 *
 	 * @param value
 	 */
 
@@ -100,8 +122,10 @@ public class LinkedList {
 		}
 		size++;
 	}
+
 	/**
 	 * Linked List inserted value in between
+	 *
 	 * @param value
 	 * @param position
 	 */
@@ -123,39 +147,35 @@ public class LinkedList {
 			System.out.println("Invalid position " + position);
 
 	}
+
 	/**
 	 * Delete the First Element
 	 */
 
-	public void deleteFirst()
-	{
-		if(start == null)
+	public void deleteFirst() {
+		if (start == null)
 			System.out.println("List is Empty. How can I Delete... :P");
-		else
-		{
+		else {
 			start = start.getNext();
 			size--;
 		}
 
 	}
+
 	/**
 	 * Linked List Item Deleted at Last
 	 */
 
-	public void deleteLast()
-	{
-		if(start == null)
+	public void deleteLast() {
+		if (start == null)
 			System.out.println("List is Empty.");
-		else if(size ==1)
-		{
+		else if (size == 1) {
 			start = null;
 			size--;
-		}
-		else
-		{
+		} else {
 			Node temp;
 			temp = start;
-			for(int i = 1; i < size -1 ; i++)
+			for (int i = 1; i < size - 1; i++)
 				temp = temp.getNext();
 			temp.setNext(null);
 			size--;
@@ -164,22 +184,30 @@ public class LinkedList {
 
 	/**
 	 * Linked List to Search Node
+	 *
 	 * @param value
 	 */
-	public void search(int value)
-	{
-		Node temp;
-		temp = start;
-
-		for(int i = 0; i < size-1; i++)
-		{
-			temp = temp.getNext();
-			if(temp.getData() == value)
-			{
-				System.out.println(+value+" found at position "+i);
+	public void search(int value) {
+		Node tempNode = start;
+		int index = 1;
+		boolean flag = false;
+		if (start == null) {
+			System.out.println("List is Empty");
+		} else {
+			while (tempNode != null) {
+				if (tempNode.getData() == value) {
+					flag = true;
+					break;
+				}
+				index++;
+				tempNode = tempNode.getNext();
 			}
 		}
+		if (flag == true) {
+			System.out.println("Value : " + value + " is present at index : " + index);
+		} else {
+			System.out.println("Element is Not Present");
+		}
 	}
-
 
 }
