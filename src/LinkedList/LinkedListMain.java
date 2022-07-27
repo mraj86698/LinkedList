@@ -6,8 +6,7 @@ public class LinkedListMain {
 		LinkedList list = new LinkedList();
 		boolean flag = true;
 		while (flag) {
-			System.out.println(
-					"1.Add Elements\n2.Insert at first position\n3. Display List \n4. Insert at Last Position\n5. Insert at Any Position\n6. Delete First Element\n7. Delete Last Element\n8.Search item \nEnter your Choice: ");
+			System.out.println("1. Add Elements\n2. Insert at first position\n3. Display List \n4. Insert at Last Position\n5. Insert at Any Position\n6. Delete First Element\n7. Delete Last Element\n8.Search item \n9.Search and Insert \nEnter your Choice: ");
 			int choice = InputUtility.inputInteger();
 
 			switch (choice) {
@@ -27,15 +26,16 @@ public class LinkedListMain {
 				int totalItem = InputUtility.inputInteger();
 				System.out.println("Enter Item");
 				for (int i = 0; i < totalItem; i++) {
-					int item = InputUtility.inputInteger();
-					list.insertAtFirst(item);
+					int item3 = InputUtility.inputInteger();
+					list.insertAtFirst(item3);
 				}
 				System.out.println("List Item Added Successfully");
 
 				break;
 			case 3:
 				System.out.println("List Items : ");
-				list.display();
+				//list.display();
+				list.printLinkedList();
 				break;
 			case 4:
 				System.out.println("How many items do u want to insert into the list: ");
@@ -67,7 +67,25 @@ public class LinkedListMain {
 				int val = InputUtility.inputInteger();
 				list.search(val);
 				break;
+			case 9:
+				System.out.println("Enter to Insert Element:");
+				int item4 = InputUtility.inputInteger();
+				System.out.println("Enter to Search Element:");
+				int item5 = InputUtility.inputInteger();
 
+				Node newNode5 =new Node(item4);
+				Node prvNode = list.searchInsert(item5, newNode5);
+				System.out.print("Newly Added data in List : ");
+				//list.display();
+				list.printLinkedList();
+				break;
+
+			case 10:
+				System.out.println("Enter to Element to Deleted in a List:");
+				int item6 = InputUtility.inputInteger();
+				list.deleteNode(item6);
+				list.printLinkedList();
+				break;
 			default:
 				System.out.println("Invalid Position");
 				break;

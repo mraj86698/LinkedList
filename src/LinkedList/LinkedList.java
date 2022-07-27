@@ -1,8 +1,8 @@
 package LinkedList;
 
 class Node {
-	private Node next;
-	private int data;
+	Node next;
+	int data;
 
 	public Node() {
 		data = 0;
@@ -12,6 +12,10 @@ class Node {
 	public Node(int d, Node node) {
 		data = d;
 		next = node;
+	}
+
+	public Node(int data2) {
+		// TODO Auto-generated constructor stub
 	}
 
 	public void setNext(Node n) {
@@ -36,18 +40,14 @@ public class LinkedList {
 
 	private int size;
 	private Node start;
+	Node head;
+	Node tail;
 
 	public LinkedList() {
 		size = 0;
 		start = null;
 	}
 
-	public boolean isEmpty() {
-		if (start == null)
-			return (true);
-		else
-			return (false);
-	}
 
 	public int getListSize() {
 
@@ -58,12 +58,39 @@ public class LinkedList {
 	 * @param item
 	 */
 
-	public void add(int item) {
 
-		Node n = new Node();
-		n.setData(item);
-		n.setNext(start);
-		start = n;
+//	public Node addNode(int data) {
+//
+//		Node newNode = new Node(data);
+//		if(head == null) {
+//			head = newNode;
+//			tail = newNode;
+//		}
+//		else{
+//	         Node temp = head;
+//	         this.head = newNode;
+//	            newNode.next = temp;
+//	        }
+//	        return newNode;
+//
+//	}
+
+
+
+	public void add(int value) {
+
+		Node n, temp;
+		n = new Node();
+		n.setData(value);
+		temp = start;
+		if (temp == null)
+			start = n;
+		else {
+			while (temp.getNext() != null) {
+				temp = temp.getNext();
+			}
+			temp.setNext(n);
+		}
 		size++;
 	}
 
@@ -72,18 +99,31 @@ public class LinkedList {
 	 */
 
 	public void display() {
-		Node temp;
-		if (isEmpty())
+		Node temp=start;;
+		if (temp == null)
 			System.out.println("List is Empty");
 		else {
-			temp = start;
+
 			for (int i = 1; i <= size; i++) {
 				System.out.print(temp.getData() + " ");
 				temp = temp.getNext();
 
 			}
-			System.out.println();
+			System.out.println(temp.getData());
 		}
+	}
+	public void printLinkedList() {
+		// TODO Auto-generated method stub
+		Node temp = start;
+        if(start == null) {
+            System.out.println("LinkedList is empty");
+        }else {
+            while(temp.next!=null) {
+                System.out.print(temp.data+" ");
+                temp = temp.next;
+            }
+            System.out.println(temp.data);
+        }
 	}
 
 	/**
@@ -93,19 +133,17 @@ public class LinkedList {
 	 */
 
 	public void insertAtFirst(int value) {
-		Node n = new Node();
-		n.setData(value);
-		n.setNext(start);
-		start = n;
-		size++;
+		Node node = new Node();
+		if(head == null)
+			head = node;
+		else
+		{
+			node.next = head;
+			head = node;
+			size++;
+		}
 
 	}
-
-	/**
-	 * Linked List to Element InsertAtLast
-	 *
-	 * @param value
-	 */
 
 	public void insertAtLast(int value) {
 		Node n, temp;
@@ -189,7 +227,7 @@ public class LinkedList {
 	 */
 	public void search(int value) {
 		Node tempNode = start;
-		int index = 1;
+		int index = 0;
 		boolean flag = false;
 		if (start == null) {
 			System.out.println("List is Empty");
@@ -209,5 +247,49 @@ public class LinkedList {
 			System.out.println("Element is Not Present");
 		}
 	}
+
+
+	public Node searchInsert(int value, Node newNode) {
+		 Node tempNode = start;
+		 if(start == null) {
+			 System.out.println("List is Empty");
+		 }
+		 else {
+			 while(tempNode != null) {
+				 if(tempNode.data == value) {
+//					 Node tempNodeNext = tempNode.next;
+//				 	  tempNode.next = newNode;
+//					newNode.next = tempNodeNext;
+					 break;
+				 }
+//				 tempNode = tempNode.next;
+				 Node tempNodeNext = tempNode.next;
+			 	  tempNode.next = newNode;
+				newNode.next = tempNodeNext;
+			 }
+//			 Node tempNodeNext = tempNode.next;
+//			 	  tempNode.next = newNode;
+//				newNode.next = tempNodeNext;
+		 }
+		return tempNode;
+	 }
+	public void deleteNode(int value) {
+		 if(this.start == null) {
+			 System.out.println("List is Empty");
+			 return;
+		 }
+		Node tempNode = head;
+		while(tempNode.next.data != value) {
+			tempNode = tempNode.next;
+		}
+		Node prvNode = tempNode;
+		Node nextNode = tempNode.next.next;
+		prvNode.next = nextNode;
+	 }
+
+
+
+
+
 
 }
