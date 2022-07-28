@@ -6,7 +6,7 @@ public class LinkedListMain {
 		LinkedList list = new LinkedList();
 		boolean flag = true;
 		while (flag) {
-			System.out.println("1. Add Elements\n2. Insert at first position\n3. Display List \n4. Insert at Last Position\n5. Insert at Any Position\n6. Delete First Element\n7. Delete Last Element\n8.Search item \n9.Search and Insert \nEnter your Choice: ");
+			System.out.println("1. Add Elements\n2. Insert at first position\n3. Display List \n4. Insert at Last Position\n5. Insert at Any Position\n6. Delete First Element\n7. Delete Last Element\n8.	Search item \n9.	Search and Insert \n10.	Search and Delete\n	Enter your Choice: ");
 			int choice = InputUtility.inputInteger();
 
 			switch (choice) {
@@ -72,6 +72,7 @@ public class LinkedListMain {
 				int item4 = InputUtility.inputInteger();
 				System.out.println("Enter to Search Element:");
 				int item5 = InputUtility.inputInteger();
+				System.out.println("item5:"+item5);
 
 				Node newNode5 =new Node(item4);
 				Node prvNode = list.searchInsert(item5, newNode5);
@@ -83,8 +84,12 @@ public class LinkedListMain {
 			case 10:
 				System.out.println("Enter to Element to Deleted in a List:");
 				int item6 = InputUtility.inputInteger();
+				System.out.println("List Item Deleted Successfully");
 				list.deleteNode(item6);
+
+
 				list.printLinkedList();
+
 				break;
 			default:
 				System.out.println("Invalid Position");

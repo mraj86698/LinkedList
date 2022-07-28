@@ -5,7 +5,7 @@ class Node {
 	int data;
 
 	public Node() {
-		data = 0;
+		data =0 ;
 		next = null;
 	}
 
@@ -15,6 +15,12 @@ class Node {
 	}
 
 	public Node(int data2) {
+		// TODO Auto-generated constructor stub
+		this.data=data2;
+		this.next=null;
+	}
+
+	public Node(Node newNode) {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -57,25 +63,6 @@ public class LinkedList {
 	 * Linked List to Add items
 	 * @param item
 	 */
-
-
-//	public Node addNode(int data) {
-//
-//		Node newNode = new Node(data);
-//		if(head == null) {
-//			head = newNode;
-//			tail = newNode;
-//		}
-//		else{
-//	         Node temp = head;
-//	         this.head = newNode;
-//	            newNode.next = temp;
-//	        }
-//	        return newNode;
-//
-//	}
-
-
 
 	public void add(int value) {
 
@@ -224,8 +211,9 @@ public class LinkedList {
 	 * Linked List to Search Node
 	 *
 	 * @param value
+	 * @return
 	 */
-	public void search(int value) {
+	public Node search(int value) {
 		Node tempNode = start;
 		int index = 0;
 		boolean flag = false;
@@ -246,45 +234,37 @@ public class LinkedList {
 		} else {
 			System.out.println("Element is Not Present");
 		}
+		return tempNode;
 	}
 
 
 	public Node searchInsert(int value, Node newNode) {
-		 Node tempNode = start;
-		 if(start == null) {
-			 System.out.println("List is Empty");
+
+		 Node searchNode = new Node(newNode);
+		 Node var=this.search(value);
+		 if(var!=null) {
+			 Node tempNode=var.next;
+			 var.next=newNode;
+			 newNode.next=tempNode;
 		 }
-		 else {
-			 while(tempNode != null) {
-				 if(tempNode.data == value) {
-//					 Node tempNodeNext = tempNode.next;
-//				 	  tempNode.next = newNode;
-//					newNode.next = tempNodeNext;
-					 break;
-				 }
-//				 tempNode = tempNode.next;
-				 Node tempNodeNext = tempNode.next;
-			 	  tempNode.next = newNode;
-				newNode.next = tempNodeNext;
-			 }
-//			 Node tempNodeNext = tempNode.next;
-//			 	  tempNode.next = newNode;
-//				newNode.next = tempNodeNext;
-		 }
-		return tempNode;
+		return var;
+
+
 	 }
 	public void deleteNode(int value) {
 		 if(this.start == null) {
 			 System.out.println("List is Empty");
 			 return;
 		 }
-		Node tempNode = head;
+		Node tempNode = start;
 		while(tempNode.next.data != value) {
 			tempNode = tempNode.next;
 		}
 		Node prvNode = tempNode;
 		Node nextNode = tempNode.next.next;
 		prvNode.next = nextNode;
+
+
 	 }
 
 
